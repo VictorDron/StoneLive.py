@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live</title>
+    <!-- Importando os estilos CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <nav>
+        <h1>StoneLive</h1>
+    </nav>
+
+    <!-- Dados Iniciais -->
+    <div class="init">
+        <!-- Grupo 1 de Dados -->
+        <div class="data1">
+            <!-- Exibindo o Resumo das Informações -->
+            <!-- Total de Atendimentos -->
+            <div class="resume">
+                <div class="title"><h1>TOTAL EM ATENDIMENTOS</h1></div>
+                <h1 class="return">{{ data.totalOccurrences }}</h1>
+            </div>
+            <!-- Total de Dias -->
+            <div class="resume">
+                <div class="title"><h1>PERÍODO TOTAL EM DIAS</h1></div>
+                <h1 class="return">{{ data.totalDays }}</h1>
+            </div>
+            <!-- Média Mensal -->
+            <div class="resume">
+                <div class="title"> <h1>MÉDIA MENSAL</h1></div>
+                <h1 class="return">{{ data.totalMonthlyAverage }}</h1>
+            </div>
+        </div>
+        
+        <!-- Grupo 2 de Dados -->
+        <div class="data2">
+            <!-- Média Diária -->
+            <div class="resume">
+                <div class="title"><h1>MÉDIA DIÁRIA</h1></div>
+                <h1 class="return">{{ data.dailyAverage }}</h1>
+            </div>
+            <!-- Estado com Maior Número de Ocorrências -->
+            <div class="resume">
+                <div class="title"><h1>ESTADO TOP</h1></div>
+                <h1 class="return">{{ data.mostOccurredState }}</h1>
+            </div>
+            <!-- Estado com Menor Número de Ocorrências -->
+            <div class="resume">
+                <div class="title"><h1>ESTADO BOTTOM</h1></div>
+                <h1 class="return">{{ data.leastOccurredState }}</h1>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Seção dos Gráficos -->
+    <div class="chart1">
+         <canvas id="sortedDates" style="width:80%;max-width:100%;height:400px;"></canvas>
+         <canvas id="baseCountsByDate" style="width:80%;max-width:100%;height:400px;"></canvas>    
+    </div>
+    
+    <!-- Exibição da Distribuição Percentual -->
+    <div id="titlechart2">
+        <h1 id="titleneutral" >DISTRIBUIÇÃO PERCENTUAL ESTADUAL</h1>
+    </div>
+    <div id="chart2">
+        <canvas id="statePercentages" width="800" height="400"></canvas>
+    </div>
+     
+    <!-- Mais Dados Exibidos -->
+    <div class="data3">
+        <!-- Total de Bases -->
+        <div class="resume1">
+            <div class="title1"><h1>TOTAL DE BASES</h1></div>
+            <h1 class="return1">{{ data2.TotalBases }}</h1>
+        </div>
+        <!-- Total de Estoque -->
+        <div class="resume1">
+            <div class="title1"><h1>TOTAL EM ESTOQUE</h1></div>
+            <h1 class="return1">{{ data2.TotalStock }}</h1>
+        </div>
+    </div>
+    
+    <!-- Seção Adicional de Gráficos -->
+    <div class="chart1">
+        <canvas id="stateBaseCount" style="width:80%;max-width:100%;height:400px;"></canvas>
+        <canvas id="stockByBase" style="width:80%;max-width:100%;height:400px;"></canvas>  
+    </div>
+
+    <!-- Importando os Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
