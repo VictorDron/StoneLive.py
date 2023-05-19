@@ -19,11 +19,11 @@ def getStockColumn(data):
 StockColumn = getStockColumn(data)
 
 # Retorna o total de bases
-def getTotalBases(data):
-    baseColumn = getBaseColumn(data)
-    return len(baseColumn)
+def getBaseColumn(data):
+    baseColumn = [row[0] for row in data]
+    return baseColumn[0:]  # Excluir a primeira linha (cabeçalhos)
 
-TotalBases = getTotalBases(data)
+TotalBases = len(getBaseColumn(data))
 
 # Retorna o total em estoque
 def getTotalStock(data):
