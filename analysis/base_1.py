@@ -151,7 +151,7 @@ def getBaseCountsByDate(data):
 
 baseCountsByDate = getBaseCountsByDate(data)
 
-# Verifica o top e o Botton em número de atendimentos
+# Verifica o top e o Bottom em número de atendimentos
 def findMostAndLeastOccurredStates(data):
     stateCounts = countBasesByState(data)
     mostOccurredState = max(stateCounts, key=stateCounts.get)
